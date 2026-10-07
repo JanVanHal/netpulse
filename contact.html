@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f5f4">
+  <title>Contact - NetPulse</title>
+  <meta name="description" content="Contact NetPulse for support and inquiries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html" class="logo"><span class="logo-mark">NP</span>NetPulse</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu" onclick="var h=this.closest('.site-header'),o=h.classList.toggle('nav-open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Open menu')"><span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>Menu</button>
+        <ul class="nav-links" id="primary-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="speed.html">Speed Test</a></li>
+          <li><a href="down.html">Is It Down?</a></li>
+          <li><a href="ip.html">IP Address</a></li>
+          <li><a href="dns.html">DNS Checker</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container">
+      <div class="reading-panel">
+        <h1>Contact Us</h1>
+        <p class="lede">We'd love to hear from you! Use the form below or email us at <a href="mailto:contact@netpulse.example">contact@netpulse.example</a>.</p>
+
+        <div class="contact-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+          <button class="btn btn-primary" type="button" onclick="sendMessage()">Send Message</button>
+          <p class="caption" id="formStatus" aria-live="polite">Send Message opens your email app with your message filled in.</p>
+        </div>
+
+        <a href="index.html" class="back-link">Return to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="logo-mark">NP</span>NetPulse</a>
+      <ul class="footer-links">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dmca.html">DMCA</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 NetPulse. Free tools, privacy first.</p>
+    </div>
+  </footer>
+  <script>
+    const CONTACT_EMAIL = 'contact@netpulse.example';
+    function sendMessage() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('formStatus');
+      if (!message) { status.textContent = 'Please write a message first.'; return; }
+      const subject = 'NetPulse contact' + (name ? ' from ' + name : '');
+      const body = message + '\n\n' + (name ? 'Name: ' + name + '\n' : '') + (email ? 'Reply to: ' + email : '');
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      status.textContent = 'Your email app should open now. If it does not, email ' + CONTACT_EMAIL + ' directly.';
+    }
+  </script>
+</body>
+</html>
