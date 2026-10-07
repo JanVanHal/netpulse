@@ -1554,3 +1554,9 @@ a:focus-visible {
 .ip-you { margin-left: 6px; padding: 1px 8px; font-size: 11px; vertical-align: 1px; }
 .ip-recent-sub { display: block; margin-top: 2px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: var(--nt-text-caption); font-weight: var(--nt-weight-regular); color: var(--nt-ink-60); }
 @media (max-width: 560px) { .ip-map iframe { height: 220px; } }
+
+/* NetPulse brand */
+.logo { display: inline-flex; align-items: center; }
+.logo-icon { flex: none; width: 28px; height: 28px; margin-right: var(--nt-space-8); border-radius: 8px; }
+.hero-logo { display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto var(--nt-space-24); border-radius: var(--nt-radius-card); }
+@media (max-width: 560px) { .hero-logo { max-width: 300px; } }
